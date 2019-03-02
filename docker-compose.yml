@@ -1,0 +1,15 @@
+version: '3.3'
+
+services:
+  php-cli:
+    build: ./docker
+    stdin_open: true
+    tty: true
+    volumes:
+      - ../EasyHire/src:/app:cached
+      - composer_cache:/home/php/.composer/cache
+    restart: unless-stopped
+    # environment:
+
+volumes:
+  composer_cache:

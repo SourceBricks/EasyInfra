@@ -1,0 +1,10 @@
+version: '3.3'
+
+services:
+  gateway.docker.internal:
+    image: qoomon/docker-host
+    cap_add: [ 'NET_ADMIN', 'NET_RAW' ]
+    restart: on-failure
+
+  php-cli:
+    depends_on: [ gateway.docker.internal ]

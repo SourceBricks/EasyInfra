@@ -1,4 +1,4 @@
-FROM php:7.3.2-cli-alpine3.9 as builder
+FROM php:7.2.15-cli-alpine3.9 as builder
 
 RUN set -ex \
    && apk add --update --no-cache \
@@ -8,13 +8,14 @@ RUN set -ex \
        # required for zip extension
        zlib-dev \
        libzip-dev \
+       libzip \
    && docker-php-ext-install bcmath intl opcache pdo_mysql zip 
 
 # php-cli image
-FROM php:7.3.2-cli-alpine3.9
+FROM php:7.2.15-cli-alpine3.9
 
 LABEL maintainer="nikola@applycolo.rs"
-LABEL version="7.3.2"
+LABEL version="7.2.15"
 LABEL description="SourceBricks php-cli image."
 
 # user build args

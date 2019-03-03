@@ -6,7 +6,7 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - ../EasyHire/src:/app:cached
+      - ../${WORKSPACE}/src:/app:cached
       - composer_cache:/home/php/.composer/cache
     restart: unless-stopped
     # environment:

@@ -9,7 +9,6 @@ services:
       - ../${WORKSPACE}/src:/app:cached
       - composer_cache:/home/php/.composer/cache
     restart: unless-stopped
-    # environment:
 
 volumes:
   composer_cache:
